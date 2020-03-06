@@ -11,14 +11,14 @@ class MyUnitCube extends CGFobject {
 
     initBuffers() {
         this.vertices = [
-            -0.5,  0.5, -0.5,	//0 sup-esq-tras
-             0.5,  0.5, -0.5, 	//1 sup-dir-tras
+            -0.5, 0.5, -0.5,	//0 sup-esq-tras
+            0.5, 0.5, -0.5, 	//1 sup-dir-tras
             -0.5, -0.5, -0.5,	//2 inf-esq-tras
-             0.5, -0.5, -0.5,	//3 inf-dir-tras
-             0.5, -0.5,  0.5,   //4 inf-dir-frent
-            -0.5, -0.5,  0.5,   //5 inf-esq.frent
-            -0.5,  0.5,  0.5,   //6 sup-esq-frent
-             0.5,  0.5,  0.5    //7 sup-dir-frent
+            0.5, -0.5, -0.5,	//3 inf-dir-tras
+            0.5, -0.5, 0.5,   //4 inf-dir-frent
+            -0.5, -0.5, 0.5,   //5 inf-esq.frent
+            -0.5, 0.5, 0.5,   //6 sup-esq-frent
+            0.5, 0.5, 0.5    //7 sup-dir-frent
 
         ];
 
