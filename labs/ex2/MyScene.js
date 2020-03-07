@@ -44,10 +44,22 @@ class MyScene extends CGFscene {
     }
 
     setDefaultAppearance() {
-        this.setAmbient(0.2, 0.4, 0.8, 1.0);
-        this.setDiffuse(0.2, 0.4, 0.8, 1.0);
-        this.setSpecular(0.2, 0.4, 0.8, 1.0);
+        let r = 0.2, g = 0.4, b = 0.8, a = 1.0;
+        this.setAmbient(r, g, b, a);
+        this.setDiffuse(r, g, b, a);
+        this.setSpecular(r, g, b, a);
         this.setShininess(10.0);
+    }
+
+    setColour(r, g, b, a = 1.0, s = 10) {
+        r /= 255;
+        g /= 255;
+        b /= 255;
+        a /= 255;
+        this.setAmbient(r, g, b, a);
+        this.setDiffuse(r, g, b, a);
+        this.setSpecular(r, g, b, a);
+        this.setShininess(s);
     }
 
     display() {
