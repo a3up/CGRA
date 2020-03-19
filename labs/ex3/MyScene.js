@@ -36,6 +36,7 @@ class MyScene extends CGFscene {
 
         //Other variables connected to MyInterface
         this.selectedObject = 0;
+        this.ambientLight = 0.3;
         this.selectedMaterial = 0;
         this.displayAxis = true;
         this.displayNormals = false;
@@ -101,6 +102,9 @@ class MyScene extends CGFscene {
         this.objects[this.selectedObject].updateBuffers(this.objectComplexity);
     }
 
+    updateAmbientLight() {
+        this.setGlobalAmbientLight(this.ambientLight, this.ambientLight, this.ambientLight, 1.0);
+    }
 
     initMaterials() {
         // Red Ambient (no diffuse, no specular)
