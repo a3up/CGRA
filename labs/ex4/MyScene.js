@@ -1,7 +1,7 @@
 /**
-* MyScene
-* @constructor
-*/
+ * MyScene
+ * @constructor
+ */
 class MyScene extends CGFscene {
     constructor() {
         super();
@@ -24,6 +24,7 @@ class MyScene extends CGFscene {
         //Initialize scene objects
         this.axis = new CGFaxis(this);
         this.quad = new MyQuad(this);
+        this.tangram = new MyTangram(this);
 
         //------ Applied Material
         this.quadMaterial = new CGFappearance(this);
@@ -31,7 +32,7 @@ class MyScene extends CGFscene {
         this.quadMaterial.setDiffuse(0.9, 0.9, 0.9, 1);
         this.quadMaterial.setSpecular(0.1, 0.1, 0.1, 1);
         this.quadMaterial.setShininess(10.0);
-        this.quadMaterial.loadTexture('images/default.png');
+        this.quadMaterial.loadTexture('images/tangram.png');
         this.quadMaterial.setTextureWrap('REPEAT', 'REPEAT');
         //------
 
@@ -43,8 +44,10 @@ class MyScene extends CGFscene {
 
         //-------Objects connected to MyInterface
         this.displayAxis = true;
+        this.displayMyQuad = false;
+        this.displayMyTangram = true;
         this.scaleFactor = 5;
-        this.selectedTexture = -1;        
+        this.selectedTexture = -1;
         this.wrapS = 0;
         this.wrapT = 0;
 
@@ -52,11 +55,11 @@ class MyScene extends CGFscene {
         this.texCoords = [0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0];
         this.wrappingMethods = ['REPEAT', 'CLAMP_TO_EDGE', 'MIRRORED_REPEAT'];
 
-        this.textureIds = { 'Board': 0, 'Floor': 1, 'Window': 2 };
-        this.wrappingS = { 'Repeat': 0, 'Clamp to edge': 1, 'Mirrored repeat': 2 };
-        this.wrappingT = { 'Repeat': 0, 'Clamp to edge': 1, 'Mirrored repeat': 2 };
+        this.textureIds = {'Board': 0, 'Floor': 1, 'Window': 2};
+        this.wrappingS = {'Repeat': 0, 'Clamp to edge': 1, 'Mirrored repeat': 2};
+        this.wrappingT = {'Repeat': 0, 'Clamp to edge': 1, 'Mirrored repeat': 2};
 
-      }
+    }
 
     initLights() {
         this.lights[0].setPosition(5, 2, 5, 1);
@@ -92,7 +95,7 @@ class MyScene extends CGFscene {
     }
 
     display() {
-  
+
         // ---- BEGIN Background, camera and axis setup
         // Clear image and depth buffer everytime we update the scene
         this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
@@ -112,17 +115,21 @@ class MyScene extends CGFscene {
         this.scale(this.scaleFactor, this.scaleFactor, this.scaleFactor);
 
         // ---- BEGIN Primitive drawing section
+        if (this.displayMyQuad) {
+            this.quadMaterial.apply();
 
-        this.quadMaterial.apply();
+            // Default texture filtering in WebCGF is LINEAR.
+            // Uncomment next line for NEAREST when magnifying, or
+            // add a checkbox in the GUI to alternate in real time
 
-        // Default texture filtering in WebCGF is LINEAR. 
-        // Uncomment next line for NEAREST when magnifying, or 
-        // add a checkbox in the GUI to alternate in real time
-        
-        // this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
+            // this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
 
-        this.quad.display();
+            this.quad.display();
+        }
 
+        if (this.displayMyTangram) {
+            this.tangram.display();
+        }
         // ---- END Primitive drawing section
     }
 }
