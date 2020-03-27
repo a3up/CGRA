@@ -4,12 +4,12 @@
  * @param scene - Reference to MyScene object
  */
 class MyTriangleSmall extends CGFobject {
-    constructor(scene) {
+    constructor(scene, textCoords) {
         super(scene);
-        this.initBuffers();
+        this.initBuffers(textCoords);
     }
 
-    initBuffers() {
+    initBuffers(textCoords) {
         this.vertices = [
             -1, 0, 0,	//0
             1, 0, 0,	//1
@@ -27,16 +27,13 @@ class MyTriangleSmall extends CGFobject {
             0, 0, 1
         ];
 
+        this.texCoords = textCoords;
+
         //The defined indices (and corresponding vertices)
         //will be read in groups of three to draw triangles
         this.primitiveType = this.scene.gl.TRIANGLES;
 
         this.initGLBuffers();
-    }
-
-    setTexCoords(coords)
-    {
-        this.texCoords = coords;
     }
 }
 
