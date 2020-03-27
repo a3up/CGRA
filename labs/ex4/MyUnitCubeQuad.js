@@ -51,11 +51,28 @@ class MyUnitCubeQuad extends CGFobject {
     }
 
     display() {
+        this.scene.pushMatrix();
+        this.scene.translate(0,0.5,0);
+        this.scene.rotate(-Math.PI/2, 1, 0, 0);
         this.displayShape(this.quadCima, this.diamondMaterial);
+        this.scene.pushMatrix();
+        this.scene.translate(0,-0.5,0);
+        this.scene.rotate(Math.PI/2, 1, 0, 0);
         this.displayShape(this.quadBaixo, this.diamondMaterial);
+        this.scene.pushMatrix();
+        this.scene.translate(0.5,0,0);
+        this.scene.rotate(Math.PI/2, 0, 1, 0);
         this.displayShape(this.quadDireita, this.diamondMaterial);
+        this.scene.pushMatrix();
+        this.scene.translate(-0.5,0,0);
+        this.scene.rotate(-Math.PI/2, 0, 1, 0);
         this.displayShape(this.quadEsquerda, this.diamondMaterial);
+        this.scene.pushMatrix();
+        this.scene.translate(0,0,0.5);
         this.displayShape(this.quadFrente, this.diamondMaterial);
+        this.scene.pushMatrix();
+        this.scene.translate(0,0,-0.5);
+        this.scene.rotate(Math.PI, 0, 1, 0);
         this.displayShape(this.quadTras, this.diamondMaterial);        
     }
 
