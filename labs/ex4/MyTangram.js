@@ -66,7 +66,7 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(Math.sqrt(2), 0, 0);
         this.scene.rotate(-Math.PI * 3 / 4, 0, 0, 1);
-        this.displayShape(this.triangle, this.pink);
+        this.displayShape(this.triangle, this.diamondMaterial);
 
         this.scene.pushMatrix();
         this.scene.rotate(-Math.PI * 3 / 4, 0, 0, 1);
@@ -96,7 +96,7 @@ class MyTangram extends CGFobject {
         this.scene.translate(Math.sqrt(2) - Math.sqrt(8), -Math.sqrt(8), 0);
         this.scene.scale(-1, 1, 1);
         this.scene.rotate(-Math.PI / 4, 0, 0, 1);
-        this.displayShape(this.parallelogram, this.yellow);
+        this.displayShape(this.parallelogram, this.diamondMaterial);
     }
 
 
