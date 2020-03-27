@@ -133,8 +133,7 @@ class MyScene extends CGFscene {
             this.tangram.display();
         }
 
-        if(this.displayMyUnitQuad)
-        {
+        if (this.displayMyUnitQuad) {
             this.myUnitQuad.display();
         }
         // ---- END Primitive drawing section
