@@ -29,7 +29,7 @@ serialInclude = function (a) {
 };
 serialInclude.l = new Array();
 
-serialInclude(['../lib/CGF.js', 'MyQuad.js', 'MyScene.js', 'MyInterface.js', 'MyTangram.js', 'MyDiamond.js', 'MyParallelogram.js', 'MyTriangle.js', 'MyTriangleBig.js', 'MyTriangleSmall.js',
+serialInclude(['../lib/CGF.js', 'MyQuad.js', 'MyScene.js', 'MyInterface.js', 'MyTangram.js', 'MyDiamond.js', 'MyParallelogram.js', 'MyTriangle.js', 'MyTriangleBig.js', 'MyTriangleSmall.js','MyUnitCubeQuad.js',
 
     main = function () {
         var app = new CGFapplication(document.body);
