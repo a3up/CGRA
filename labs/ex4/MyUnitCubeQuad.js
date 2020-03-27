@@ -47,6 +47,7 @@ class MyUnitCubeQuad extends CGFobject {
     }
 
     displayShape(shape, color) {
+        this.scene.gl.texParameteri(this.scene.gl.TEXTURE_2D, this.scene.gl.TEXTURE_MAG_FILTER, this.scene.gl.NEAREST);
         color.apply();
         shape.display();
         this.scene.popMatrix();
