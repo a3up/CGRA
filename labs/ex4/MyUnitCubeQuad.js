@@ -41,7 +41,9 @@ class MyUnitCubeQuad extends CGFobject {
     }
 
     initMaterials() {
-        this.diamondMaterial = this.initTexture("tangram");
+        this.mineSide = this.initTexture("mineSide");
+        this.mineTop = this.initTexture("mineTop");
+        this.mineBottom = this.initTexture("mineBottom");
     }
 
     displayShape(shape, color) {
@@ -54,26 +56,26 @@ class MyUnitCubeQuad extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(0,0.5,0);
         this.scene.rotate(-Math.PI/2, 1, 0, 0);
-        this.displayShape(this.quadCima, this.diamondMaterial);
+        this.displayShape(this.quadCima, this.mineTop);
         this.scene.pushMatrix();
         this.scene.translate(0,-0.5,0);
         this.scene.rotate(Math.PI/2, 1, 0, 0);
-        this.displayShape(this.quadBaixo, this.diamondMaterial);
+        this.displayShape(this.quadBaixo, this.mineBottom);
         this.scene.pushMatrix();
         this.scene.translate(0.5,0,0);
         this.scene.rotate(Math.PI/2, 0, 1, 0);
-        this.displayShape(this.quadDireita, this.diamondMaterial);
+        this.displayShape(this.quadDireita, this.mineSide);
         this.scene.pushMatrix();
         this.scene.translate(-0.5,0,0);
         this.scene.rotate(-Math.PI/2, 0, 1, 0);
-        this.displayShape(this.quadEsquerda, this.diamondMaterial);
+        this.displayShape(this.quadEsquerda, this.mineSide);
         this.scene.pushMatrix();
         this.scene.translate(0,0,0.5);
-        this.displayShape(this.quadFrente, this.diamondMaterial);
+        this.displayShape(this.quadFrente, this.mineSide);
         this.scene.pushMatrix();
         this.scene.translate(0,0,-0.5);
         this.scene.rotate(Math.PI, 0, 1, 0);
-        this.displayShape(this.quadTras, this.diamondMaterial);        
+        this.displayShape(this.quadTras, this.mineSide);        
     }
 
 
