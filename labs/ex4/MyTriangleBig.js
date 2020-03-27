@@ -33,5 +33,10 @@ class MyTriangleBig extends CGFobject {
 
         this.initGLBuffers();
     }
+
+    setTexCoords(coords)
+    {
+        this.texCoords = coords;
+    }
 }
 
