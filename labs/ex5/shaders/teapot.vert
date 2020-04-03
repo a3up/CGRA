@@ -9,17 +9,15 @@ attribute vec2 aTextureCoord;
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform mat4 uNMatrix;
-uniform float timeFactor;
 
 varying vec4 coords;
 varying vec4 normal;
-uniform float normScale;
 
 
 void main() {
-    vec3 offset = normScale * 0.1 * sin(timeFactor) * vec3(1.0, 0, 0);
+    vec4 vertex=vec4(aVertexPosition+aVertexNormal*0.1, 1.0);
 
-    gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition + offset, 1.0);
+    gl_Position = uPMatrix * uMVMatrix * vertex;
 
     normal = vec4(aVertexNormal, 1.0);
 

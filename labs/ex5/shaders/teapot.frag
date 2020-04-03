@@ -2,11 +2,8 @@
 precision highp float;
 #endif
 
-uniform sampler2D uSampler;
-
 varying vec4 coords;
 varying vec4 normal;
-uniform float timeFactor;
 
 void main() {
     if (coords.y > 0.5){
